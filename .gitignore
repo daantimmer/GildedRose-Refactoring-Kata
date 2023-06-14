@@ -7,4 +7,4 @@ vendor
 *.iml
 csharpcore/GildedRoseTests/ApprovalTest.ThirtyDays.received.txt
 build
-.cache/*
+.cache
