@@ -6,6 +6,11 @@ namespace
     {
         return item.name == "Sulfuras, Hand of Ragnaros";
     }
+
+    bool IsBackstageName(const Item& item)
+    {
+        return item.name == "Backstage passes to a TAFKAL80ETC concert";
+    }
 }
 
 GildedRose::GildedRose(vector<Item> & items) : items(items)
@@ -15,7 +20,7 @@ void GildedRose::updateQuality()
 {
     for (int i = 0; i < items.size(); i++)
     {
-        if (items[i].name != "Aged Brie" && items[i].name != "Backstage passes to a TAFKAL80ETC concert")
+        if (items[i].name != "Aged Brie" && !IsBackstageName(items[i]))
         {
             if (items[i].quality > 0)
             {
@@ -31,7 +36,7 @@ void GildedRose::updateQuality()
             {
                 items[i].quality = items[i].quality + 1;
 
-                if (items[i].name == "Backstage passes to a TAFKAL80ETC concert")
+                if (IsBackstageName(items[i]))
                 {
                     if (items[i].sellIn < 11)
                     {
@@ -61,7 +66,7 @@ void GildedRose::updateQuality()
         {
             if (items[i].name != "Aged Brie")
             {
-                if (items[i].name != "Backstage passes to a TAFKAL80ETC concert")
+                if (!IsBackstageName(items[i]))
                 {
                     if (items[i].quality > 0)
                     {
