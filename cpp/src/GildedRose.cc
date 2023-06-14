@@ -1,9 +1,17 @@
 #include "GildedRose.h"
 
+namespace
+{
+    bool IsHandOfRagnaros(const Item &item)
+    {
+        return item.name == "Sulfuras, Hand of Ragnaros";
+    }
+}
+
 GildedRose::GildedRose(vector<Item> & items) : items(items)
 {}
-    
-void GildedRose::updateQuality() 
+
+void GildedRose::updateQuality()
 {
     for (int i = 0; i < items.size(); i++)
     {
@@ -11,7 +19,7 @@ void GildedRose::updateQuality()
         {
             if (items[i].quality > 0)
             {
-                if (items[i].name != "Sulfuras, Hand of Ragnaros")
+                if (! IsHandOfRagnaros(items[i]))
                 {
                     items[i].quality = items[i].quality - 1;
                 }
@@ -44,7 +52,7 @@ void GildedRose::updateQuality()
             }
         }
 
-        if (items[i].name != "Sulfuras, Hand of Ragnaros")
+        if (! IsHandOfRagnaros(items[i]))
         {
             items[i].sellIn = items[i].sellIn - 1;
         }
@@ -57,7 +65,7 @@ void GildedRose::updateQuality()
                 {
                     if (items[i].quality > 0)
                     {
-                        if (items[i].name != "Sulfuras, Hand of Ragnaros")
+                        if (! IsHandOfRagnaros(items[i]))
                         {
                             items[i].quality = items[i].quality - 1;
                         }
