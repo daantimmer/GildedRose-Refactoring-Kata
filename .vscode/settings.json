@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "/workspaces/GildedRose-Refactoring-Kata/cpp"
+    "cmake.sourceDirectory": "/workspaces/GildedRose-Refactoring-Kata/cpp",
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
 }
